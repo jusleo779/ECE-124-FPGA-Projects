@@ -1,0 +1,5 @@
+module full_adder(
+ input input_A, input_B,
+ input carry_in
+ output carry_out, sum_out
+);

@@ -1,0 +1,19 @@
+module Logic_Processor(
+	input [3:0]hex_A,
+	input [3:0]hex_B,
+	input [1:0] select,
+	output [3:0] logic_out
+);
+
+
+	assign gate_and = hex_A & hex_B;
+	assign gate_OR = hex_A | hex_B;
+	assign gate_XOR = hex_A ^ hex_B;
+	assign gate_XNOR = ~(hex_A ^ hex_B);
+	
+	assign logic_out = (select == 2'b00)? gate_and :
+							 (select == 2'b01)? gate_or :
+							 (select == 2'b10)? gate_XOR : gate_XNOR;
+	
+	endmodule
+	
