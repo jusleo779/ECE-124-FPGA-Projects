@@ -90,19 +90,19 @@ When an `if` statement inside an `always` block doesn't cover all possible input
 **Blocking vs Non-Blocking Assignments**
 Combinational logic inside `always` blocks uses blocking assignments (`=`), which execute sequentially and update immediately. Sequential logic uses non-blocking assignments (`<=`), which all evaluate using the current signal values and update simultaneously at the end of the clock edge. Mixing these up produces hardware that behaves differently from what the code implies.
 
-**4-Bit Magnitude Comparator -- Built from First Principles**
+**4-Bit Magnitude Comparator - Built from First Principles**
 Designed a comparator from a single-bit building block (`Compx1`) that produces three mutually exclusive outputs: A>B, A=B, A<B. Then instantiated four of them structurally in `Compx4` and combined their results using Boolean logic that checks bits from most significant to least significant, if the top bits differ, the lower bits don't matter. This is the same priority-based comparison logic used in real ALU designs.
 
-**Sequential Logic -- Up/Down Counter as HVAC Emulator**
+**Sequential Logic - Up/Down Counter as HVAC Emulator**
 Built the HVAC block as a clocked up/down counter using behavioural Verilog. On each rising clock edge it increments or decrements a temperature register based on `increase` and `decrease` inputs, subject to boundary conditions (can't go below 0 or above F). I designed logic where state persists across clock cycles, the key conceptual shift from combinational to sequential design.
 
 **Clock Divider and Parameter Passing**
 The HVAC counter runs off a 2 Hz divided clock for hardware testing (so the temperature changes are visible to the eye) and a 50 MHz clock for simulation (so simulations run in a reasonable time). The clock selection is controlled by a parameter (`hvac_sim`) passed down from the top level. This is a real technique used in hardware designs to make the same block testable at different speeds without changing its logic.
 
-**`ifdef` Compiler Directives -- Debugging the Hard Way**
+**`ifdef` Compiler Directives - Debugging the Hard Way**
 This was the most time-consuming part of the lab. The FPGA has no spare pins, so simulation-only ports that expose internal signals for waveform visibility have to be wrapped in `ifdef`/`ifndef`/`endif` directives and excluded from the hardware compile. The lab manual description of where exactly to place these directives was vague enough that I initially commented out the wrong sections, which caused a chain of compile errors that weren't immediately obvious in origin. Once I learned what needed to be inside the `ifdef` block versus what had to stay commented, the errors cleared. After that, the simulation was still missing expected waveforms, which turned out to be signals I hadn't yet wired into the simulation ports. Adding those signals and reconnecting them correctly got the waveforms showing as expected. The debugging sequence I used was compile error, fix placement, re-simulate, find missing waveforms, add signals, re-simulate. It was more iterative than any previous lab and taught me that simulation infrastructure has its own bugs separate from the design logic.
 
-**On-Chip Tester — Testing Without External Equipment**
+**On-Chip Tester - Testing Without External Equipment**
 The on-chip tester block runs autonomously in hardware, driving known inputs to the comparator, checking outputs against expected results, and lighting an LED on pass or fail. Getting the tester to pass required fixing a subtle issue: I had initially commented out part of the simulation-related code thinking it was only needed for the waveform simulation, but it was also feeding signals that the tester depended on. Once I understood the boundary between what was simulation-only and what was shared logic, the tester passed cleanly. This is a pattern used in real production environments where functional testing needs to be fast and self-contained.
 
 **System-Level Design**
