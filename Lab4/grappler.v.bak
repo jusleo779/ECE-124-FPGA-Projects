@@ -1,0 +1,49 @@
+module grappler(
+	input clock,
+	input reset,
+	input sm_clken,
+	input extended
+	input grapple_EN,
+	input g_close,
+	output 
+);
+
+reg [1:0] state;
+reg [1:0] next_state;
+
+parameter A = 2'b00;
+parameter B = 2'b01;
+parameter C = 2'b10;
+parameter D = 2'b11;
+
+always@(*)begin
+	case
+		A:begin
+			if(grapple_EN == 1'b1 && g_close == 1'b1)
+				next_state = B;
+			else
+				next_state = A;
+		end
+		B:begin
+			if(grapple_EN = 1'b1 && g_close == 1'b1)
+				next_state = D;
+			else
+				next_state = C;
+		end
+	endcase
+end
+
+
+
+always(*)begin
+	if(extended)begin
+		case(state)
+			
+			
+	end
+end
+
+
+
+
+endmodule

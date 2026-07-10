@@ -1,0 +1,52 @@
+module SM(
+	input clock,
+	input reset,
+	input sm_clken,
+	input 
+	output Extender_OUT,
+	output grapple_EN,
+
+);
+
+
+reg [3:0] state;
+reg [3:0] next_state;
+
+parameter retracted = 4'b0000;
+parameter extending1 = 4'1000;
+parameter extending2 = 4'b1100;
+parameter extending3 = 4'b1110;
+parameter fullExtending = 4'b1111;
+
+always@(*)begin
+	case(state)
+	retracted:begin
+		Extender_OUT = 0;
+		next_state = extending1;
+	end
+	extending1:begin
+		Extender_OUT = 1;
+		next_state = extending2;
+	end
+	extending2: begin
+		Extender_OUT = 1;
+		next_state = extending3;
+	end
+	extending3:begin
+		Extender_OUT = 1;
+		next_state = fullExtending
+	end
+	fullExtending: begin
+		Extender_OUT = 1;
+		grapple_EN = 1;
+	end
+end
+
+always@(posedge clk)begin
+	if(reset)
+		state <= retracted;
+	else(sm_clken)
+		state <= next_state;
+end
+
+endmodule
