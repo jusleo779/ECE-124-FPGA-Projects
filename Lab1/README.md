@@ -1,8 +1,11 @@
-
 ## Lab 1 Design Entry Methods: Schematic & Verilog
 
 ### What I Built
 A gate-level logic circuit implementing XOR, OR, NAND, and AND functions, entered in two ways: schematic and Verilog, and verified through functional simulation before being flashed onto the FPGA.
+
+![Gate-level schematic: XOR, OR, NAND, and AND blocks](gates_schematic.png)
+
+*Figure 1: Schematic entry of the four gate-level functions (XOR, OR, NAND, AND).*
 
 ### What I Learned
 
@@ -20,6 +23,10 @@ The push-button inputs on the LogicalStep board are active-low, meaning a presse
 
 **Signal Polarity Control**
 Extended the design with a polarity control block that lets a switch flip all output active states between active-high and active-low with a single input. This reinforced how XOR gates can be used as programmable inverters, a pattern that appears constantly in real digital design.
+
+![Polarity control schematic: XNOR array driven by POLARITY_CNTRL](polarity_control_schematic.png)
+
+*Figure 2: Polarity control block — a shared `POLARITY_CNTRL` signal feeds four XNOR gates, letting one switch invert all four outputs.*
 
 **Key Takeaway**
 Simulation is not optional; it's the workflow. Design, synthesize, simulate, verify against truth tables, then program. Skipping simulation means debugging in hardware, which is significantly harder.
