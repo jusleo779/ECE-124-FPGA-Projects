@@ -33,3 +33,13 @@ The final ALU brought together every sub-component built in the lab into one ver
 Complex digital systems are built by composing verified smaller blocks. Structural Verilog enforces this discipline by making the hierarchy explicit in code. Writing a working ALU from individual full adders and multiplexers made the internals of computer arithmetic concrete in a way that reading about it never could.
 
 ---
+
+## Tools & Environment
+
+| Tool | Purpose |
+|---|---|
+| Intel Quartus Prime v18.1 | Synthesis, simulation, compilation, FPGA programming |
+| University of Waterloo LogicalStep Board | Altera MAX10 FPGA development platform |
+| Verilog HDL | Hardware description language for all designs |
+| Quartus Waveform Simulator (VWF) | Functional simulation and verification |
+| USB Blaster (JTAG) | Programming interface to the FPGA |
