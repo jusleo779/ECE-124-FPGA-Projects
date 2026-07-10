@@ -9,8 +9,6 @@ A Robotic Arm Controller (RAC) that positions a simulated robotic arm in two dim
 
 *Demo of the working Robotic Arm Controller on the LogicalStep board.*
 
-> **Note:** GitHub only renders this player inline if `rac_demo.mp4` is committed to in this same repo. If you view the raw README elsewhere, [download the video directly](rac_demo.mp4) instead.
-
 ## What I Learned
 
 ### Metastability and Why It Matters
