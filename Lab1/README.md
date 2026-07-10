@@ -23,3 +23,13 @@ Extended the design with a polarity control block that lets a switch flip all ou
 
 **Key Takeaway**
 Simulation is not optional; it's the workflow. Design, synthesize, simulate, verify against truth tables, then program. Skipping simulation means debugging in hardware, which is significantly harder.
+
+## Tools & Environment
+
+| Tool | Purpose |
+|---|---|
+| Intel Quartus Prime v18.1 | Synthesis, simulation, compilation, FPGA programming |
+| University of Waterloo LogicalStep Board | Altera MAX10 FPGA development platform |
+| Verilog HDL | Hardware description language for all designs |
+| Quartus Waveform Simulator (VWF) | Functional simulation and verification |
+| USB Blaster (JTAG) | Programming interface to the FPGA |
