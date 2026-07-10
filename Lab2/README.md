@@ -26,7 +26,7 @@ Used Verilog's concatenation operator `{, }` to combine the 1-bit carry-out from
 ### Logic Processor
 Built a 4-bit logic processor using a chained conditional structure to select between AND, OR, XOR, and XNOR operations based on a 2-bit select input from the push buttons. This directly mirrors what the ALU function unit inside a CPU does: select an operation and execute it on operands.
 
-![Functional simulation waveform of the logic processor](images/logic_processor_waveform.png)
+![Functional simulation waveform of the logic processor](logic_processor_waveform.png)
 
 *Figure 1: Functional simulation of the logic processor. `select_n` cycles through `11`, `10`, `01`, `00` to step through XNOR, XOR, OR, and AND, with `logic_out` verified against `logic_in1`/`logic_in0` for each case.*
 
