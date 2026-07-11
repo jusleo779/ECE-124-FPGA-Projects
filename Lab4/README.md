@@ -7,7 +7,7 @@ A Robotic Arm Controller (RAC) that positions a simulated robotic arm in two dim
 
 ![Demo of the Robotic Arm Controller on the LogicalStep board](rac_demo.gif)
 
-*First 12 seconds of the RAC demo (GIFs have no audio, and this is trimmed from the full 45s clip).*
+*Full RAC demo (45s, no audio — GIF format doesn't support sound).*
 
 ## What I Learned
 
