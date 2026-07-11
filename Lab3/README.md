@@ -5,7 +5,7 @@ A complete home energy monitoring system running on the FPGA. The system takes a
 
 ### Demo
 
-![Demo of the Home Energy Monitor on the LogicalStep board](images/energy_monitor_demo.gif)
+![Demo of the Home Energy Monitor on the LogicalStep board](energy_monitor_demo.gif)
 
 *Full Energy Monitor demo (no audio — GIF format doesn't support sound).*
 
